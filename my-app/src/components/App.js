@@ -5,15 +5,14 @@ import React from "react";
 // import ArtworkForm from "./ArtworkForm";
 // import Gallery from "./Gallery";
 // import ArtworkDetail from "./ArtworkDetail";
-// import { Switch, Route } from 'react-router-dom';
 
 
 function App() {
   return <div>
+    {/* <Header /> */}
     hello this is the app
   </div>
   // const [projects, setProjects] = useState([]);
-  // const [isDarkMode, setIsDarkMode] = useState(true);
   // const [currentUser, setCurrentUser] = useState(null);
 
   // useEffect(() => {
@@ -40,20 +39,6 @@ function App() {
   //       currentUser={currentUser}
   //       setCurrentUser={setCurrentUser}
   //     />
-  //     {/* wouldn't it be nice if these were separate pages? */}
-  //     <Switch>        
-  //       <Route path="/projects/new" component={
-  //         () => <ArtworkForm onAddProject={handleAddProject} /> } 
-  //       />
-
-  //       <Route path="/projects/:id" component={ArtworkDetail} />
-        
-  //       <Route path="/projects" component={
-  //         () => <Gallery projects={projects} /> } 
-  //       />
-
-  //       <Route path="/" component={Home} />
-  //     </Switch>
   //   </div>
   // );
 }
