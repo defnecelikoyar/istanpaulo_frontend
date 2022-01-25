@@ -1,9 +1,11 @@
+// ArtworkForm = ProjectForm
+
 import React, { useState } from "react";
 
-function ArtworkForm({ onAddProject }) {
+function ArtworkForm({ onAddArtwork }) {
   const [name, setName] = useState("");
   const [about, setAbout] = useState("");
-  const [phase, setPhase] = useState(1);
+  const [movement, setMovement] = useState(1);
   const [link, setLink] = useState("");
   const [image, setImage] = useState("");
 
@@ -13,12 +15,12 @@ function ArtworkForm({ onAddProject }) {
     const formData = {
       name,
       about,
-      phase,
+      movement,
       link,
       image,
     };
 
-    fetch("http://localhost:3000/projects", {
+    fetch("http://localhost:3000/artworks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,15 +28,15 @@ function ArtworkForm({ onAddProject }) {
       body: JSON.stringify(formData),
     })
       .then((r) => r.json())
-      .then((newProject) => {
-        onAddProject(newProject);
+      .then((newArtwork) => {
+        onAddArtwork(newArtwork);
       });
   }
 
   return (
     <section>
       <form onSubmit={handleSubmit} className="form" autoComplete="off">
-        <h3>Add New Project</h3>
+        <h3>Add New Artwork</h3>
         <label htmlFor="name">Name</label>
         <input
           type="text"
@@ -55,21 +57,21 @@ function ArtworkForm({ onAddProject }) {
           onChange={(event) => setAbout(event.target.value)}
         />
 
-        <label htmlFor="phase">Phase</label>
+        <label htmlFor="movement">movement</label>
         <select
-          name="phase"
-          id="phase"
-          value={phase}
-          onChange={(event) => setPhase(parseInt(event.target.value))}
+          name="movement"
+          id="movement"
+          value={movement}
+          onChange={(event) => setMovement(parseInt(event.target.value))}
         >
-          <option value="1">Phase 1</option>
-          <option value="2">Phase 2</option>
-          <option value="3">Phase 3</option>
-          <option value="4">Phase 4</option>
-          <option value="5">Phase 5</option>
+          <option value="1">movement 1</option>
+          <option value="2">movement 2</option>
+          <option value="3">movement 3</option>
+          <option value="4">movement 4</option>
+          <option value="5">movement 5</option>
         </select>
 
-        <label htmlFor="link">Project Homepage</label>
+        <label htmlFor="link">Artwork Homepage</label>
         <input
           type="text"
           id="link"
@@ -87,7 +89,7 @@ function ArtworkForm({ onAddProject }) {
           onChange={(event) => setImage(event.target.value)}
         />
 
-        <button type="submit">Add Project</button>
+        <button type="submit">Add Artwork</button>
       </form>
     </section>
   );
