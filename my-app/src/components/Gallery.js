@@ -1,37 +1,39 @@
-import React from "react";
-// import React, { useState } from "react";
-// import Artwork from "./Artwork";
+// Gallery = ProjectList
 
-function Gallery({ projects }) {
-    return <div>
-        hello this is the gallery
-    </div>
-//   const [phaseFilter, setPhaseFilter] = useState("All");
-// //   const [projectSearch, setProjectSearch] = useState("");
+// import React from "react";
+import React, { useState } from "react";
+import Artwork from "./Artwork";
 
-//   const projectItems = projects
-//     .filter((project) => {
-//       return phaseFilter === "All" || project.phase === phaseFilter;
-//     })
-//     .filter((project) => {
-//       return project.name.toLowerCase().includes(projectSearch.toLowerCase());
-//     })
-//     .map((project) => {
-//       return <Artwork key={project.id} project={project} />;
-//     });
+function Gallery({ artworks }) {
+    // return <div>
+    //     hello this is the gallery
+    // </div>
+  const [phaseFilter, setPhaseFilter] = useState("All");
+  const [artworkSearch, setArtworkSearch] = useState("");
 
-//   return (
-//     <section>
-//       <h2>Projects</h2>
+  const artworkItems = artworks
+    .filter((artwork) => {
+      return phaseFilter === "All" || artwork.phase === phaseFilter;
+    })
+    .filter((artwork) => {
+      return artwork.name.toLowerCase().includes(artworkSearch.toLowerCase());
+    })
+    .map((artwork) => {
+      return <Artwork key={artwork.id} artwork={artwork} />;
+    });
 
-//       <FilterBar
-//         setPhaseFilter={setPhaseFilter}
-//         setProjectSearch={setProjectSearch}
-//       />
+  return (
+    <section>
+      <h2>Artworks</h2>
 
-//       <ul className="cards">{projectItems}</ul>
-//     </section>
-//   );
+      {/* <FilterBar
+        setPhaseFilter={setPhaseFilter}
+        setArtworkSearch={setArtworkSearch}
+      /> */}
+
+      <ul className="cards">{artworkItems}</ul>
+    </section>
+  );
 }
 
 export default Gallery;

@@ -1,46 +1,48 @@
-// import React, { useState } from "react";
-import React from "react";
+// Artwork = ProjectItem
+
+import React, { useState } from "react";
+// import React from "react";
 // 'react-router-dom' Imports
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-function Artwork({ project }) {
-    return <div>
-        hello this is the artwork component
-    </div>
-//   const [claps, setClaps] = useState(0);
+function Artwork({ artwork }) {
+    // return <div>
+    //     hello this is the artwork component
+    // </div>
+  const [claps, setClaps] = useState(0);
 
-//   // Pull "id" from project object
-//   const { id, image, name, about, phase } = project;
+//   // Pull "id" from artwork object
+  const { id, image, name, about, phase } = artwork;
 
 //   // Generate path by interpolating "id" into <Link> path
-//   const path = `/projects/${id}`;
+  const path = `/artworks/${id}`;
 
-//   function handleClapClick() {
-//     setClaps(claps + 1);
-//   }
+  function handleClapClick() {
+    setClaps(claps + 1);
+  }
 
-//   return (
-//     <li className="card">
-//       <div className="project-image">
-//         <img src={image} alt={name} />
-//         <button className="claps" onClick={handleClapClick}>
-//           👏{claps}
-//         </button>
-//       </div>
+  return (
+    <li className="card">
+      <div className="project-image">
+        <img src={image} alt={name} />
+        <button className="claps" onClick={handleClapClick}>
+          👏{claps}
+        </button>
+      </div>
 
-//       <div className="details">
-//         <h4>{name}</h4>
-//         <p>{about}</p>
-//         <Link to={path}>
-//           See More
-//         </Link>
-//       </div>
+      <div className="details">
+        <h4>{name}</h4>
+        <p>{about}</p>
+        <Link to={path}>
+          See More
+        </Link>
+      </div>
 
-//       <div className="extra">
-//         <span className="badge blue">Phase {phase}</span>
-//       </div>
-//     </li>
-//   );
+      <div className="extra">
+        <span className="badge blue">Phase {phase}</span>
+      </div>
+    </li>
+  );
 }
 
 export default Artwork;

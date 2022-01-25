@@ -1,6 +1,8 @@
+// ArtworkForm = ProjectForm
+
 import React, { useState } from "react";
 
-function ArtworkForm({ onAddProject }) {
+function ArtworkForm({ onAddArtwork }) {
   const [name, setName] = useState("");
   const [about, setAbout] = useState("");
   const [phase, setPhase] = useState(1);
@@ -18,7 +20,7 @@ function ArtworkForm({ onAddProject }) {
       image,
     };
 
-    fetch("http://localhost:3000/projects", {
+    fetch("http://localhost:3000/artworks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,15 +28,15 @@ function ArtworkForm({ onAddProject }) {
       body: JSON.stringify(formData),
     })
       .then((r) => r.json())
-      .then((newProject) => {
-        onAddProject(newProject);
+      .then((newArtwork) => {
+        onAddArtwork(newArtwork);
       });
   }
 
   return (
     <section>
       <form onSubmit={handleSubmit} className="form" autoComplete="off">
-        <h3>Add New Project</h3>
+        <h3>Add New Artwork</h3>
         <label htmlFor="name">Name</label>
         <input
           type="text"
@@ -69,7 +71,7 @@ function ArtworkForm({ onAddProject }) {
           <option value="5">Phase 5</option>
         </select>
 
-        <label htmlFor="link">Project Homepage</label>
+        <label htmlFor="link">Artwork Homepage</label>
         <input
           type="text"
           id="link"
@@ -87,7 +89,7 @@ function ArtworkForm({ onAddProject }) {
           onChange={(event) => setImage(event.target.value)}
         />
 
-        <button type="submit">Add Project</button>
+        <button type="submit">Add Artwork</button>
       </form>
     </section>
   );
