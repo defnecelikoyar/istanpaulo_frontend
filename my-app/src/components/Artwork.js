@@ -9,24 +9,24 @@ function Artwork({ artwork }) {
     // return <div>
     //     hello this is the artwork component
     // </div>
-  const [claps, setClaps] = useState(0);
+  const [tears, setTears] = useState(0);
 
 //   // Pull "id" from artwork object
-  const { id, image, name, about, phase } = artwork;
+  const { id, image, name, about, movement } = artwork;
 
 //   // Generate path by interpolating "id" into <Link> path
   const path = `/artworks/${id}`;
 
-  function handleClapClick() {
-    setClaps(claps + 1);
+  function handleTearClick() {
+    setTears(tears + 1);
   }
 
   return (
     <li className="card">
       <div className="project-image">
         <img src={image} alt={name} />
-        <button className="claps" onClick={handleClapClick}>
-          👏{claps}
+        <button className="claps" onClick={handleTearClick}>
+        🥲{tears} Tear to my eye.
         </button>
       </div>
 
@@ -39,7 +39,7 @@ function Artwork({ artwork }) {
       </div>
 
       <div className="extra">
-        <span className="badge blue">Phase {phase}</span>
+        <span className="badge blue">Movement {movement}</span>
       </div>
     </li>
   );

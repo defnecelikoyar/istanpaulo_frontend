@@ -9,7 +9,7 @@ function ArtworkDetail() {
     // return <div>
     //     hello this is the artwork detail
     // </div>
-  const [claps, setClaps] = useState(0);
+  const [tears, setTears] = useState(0);
   const [artwork, setArtwork] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -37,10 +37,10 @@ function ArtworkDetail() {
 
   if (!isLoaded) return <h2>Loading...</h2>;
 
-  const { image, name, about, link, phase } = artwork;
+  const { image, name, about, link, movement } = artwork;
 
-  function handleClapClick() {
-    setClaps(claps + 1);
+  function handleTearClick() {
+    setTears(tears + 1);
   }
 
   return (
@@ -48,8 +48,8 @@ function ArtworkDetail() {
       <div className="project-detail box">
         <div className="project-image">
           <img src={image} alt={name} />
-          <button className="claps" onClick={handleClapClick}>
-            👏{claps}
+          <button className="tears" onClick={handleTearClick}>
+            👏{tears}
           </button>
         </div>
         <div className="details">
@@ -63,7 +63,7 @@ function ArtworkDetail() {
             </p>
           ) : null}
           <div className="extra">
-            <span className="badge blue">Phase {phase}</span>
+            <span className="badge blue">movement {movement}</span>
           </div>
           <Link to="/projects">
             Go Back

@@ -5,7 +5,7 @@ import React, { useState } from "react";
 function ArtworkForm({ onAddArtwork }) {
   const [name, setName] = useState("");
   const [about, setAbout] = useState("");
-  const [phase, setPhase] = useState(1);
+  const [movement, setMovement] = useState(1);
   const [link, setLink] = useState("");
   const [image, setImage] = useState("");
 
@@ -15,7 +15,7 @@ function ArtworkForm({ onAddArtwork }) {
     const formData = {
       name,
       about,
-      phase,
+      movement,
       link,
       image,
     };
@@ -57,18 +57,18 @@ function ArtworkForm({ onAddArtwork }) {
           onChange={(event) => setAbout(event.target.value)}
         />
 
-        <label htmlFor="phase">Phase</label>
+        <label htmlFor="movement">movement</label>
         <select
-          name="phase"
-          id="phase"
-          value={phase}
-          onChange={(event) => setPhase(parseInt(event.target.value))}
+          name="movement"
+          id="movement"
+          value={movement}
+          onChange={(event) => setMovement(parseInt(event.target.value))}
         >
-          <option value="1">Phase 1</option>
-          <option value="2">Phase 2</option>
-          <option value="3">Phase 3</option>
-          <option value="4">Phase 4</option>
-          <option value="5">Phase 5</option>
+          <option value="1">movement 1</option>
+          <option value="2">movement 2</option>
+          <option value="3">movement 3</option>
+          <option value="4">movement 4</option>
+          <option value="5">movement 5</option>
         </select>
 
         <label htmlFor="link">Artwork Homepage</label>

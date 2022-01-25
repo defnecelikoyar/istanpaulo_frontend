@@ -28,12 +28,12 @@ function Header({
         <Link to="/">{title}</Link> 
       </h1>
       <nav>
-        <NavLink exact className="button" to="/artworks">
+        {/* <NavLink exact className="button" to="/artworks">
           Gallery
         </NavLink>
         <NavLink exact className="button" to="/artworks/new">
           Submit Artwork
-        </NavLink>
+        </NavLink> */}
         {currentUser ? (
           <button onClick={logout}>Logout</button>
         ) : (
