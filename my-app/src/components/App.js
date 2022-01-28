@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import React from "react";
 import Home from "./Home";
+import About from "./About";
 import Header from "./Header";
 import ArtworkForm from "./ArtworkForm";
 import Gallery from "./Gallery";
@@ -9,22 +9,13 @@ import { Switch, Route } from 'react-router-dom';
 
 
 function App() {
-  // return <div>
-  //   {/* <Header /> */}
-  //   hello this is the app
-  // </div>
   const [artworks, setArtworks] = useState([]);
-  // const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3000/artworks")
+    fetch("http://localhost:9292/artworks")
       .then((r) => r.json())
-      .then(setArtworks);
+      .then(data => setArtworks(data));
   }, []);
-
-  // function handleDarkModeClick() {
-  //   setIsDarkMode(!isDarkMode);
-  // }
 
   function handleAddArtwork(newArtwork) {
     const newArtworkArray = [newArtwork, ...artworks];
@@ -32,27 +23,13 @@ function App() {
   }
 
   return (
-    <div 
-    // className={isDarkMode ? "App" : "App light"}
-    >
-      <Header
-        title="Instapaulo Gallery"
-        // isDarkMode={isDarkMode}
-        // onDarkModeClick={handleDarkModeClick}
-        // currentUser={currentUser}
-        // setCurrentUser={setCurrentUser}
-      />
+    <div>
+      <Header />
       <Switch>        
-        <Route path="/artwork/new" component={
-          () => <ArtworkForm onAddProject={handleAddArtwork} /> } 
-        />
-
-        <Route path="/artwork/:id" component={ArtworkDetail} />
-        
-        <Route path="/artworks" component={
-          () => <Gallery artworks={artworks} /> } 
-        />
-
+        <Route path="/artworks/new" component={() => <ArtworkForm addArtwork={handleAddArtwork} /> } />
+        <Route path="/artworks/:id" component={() => <ArtworkDetail art={artworks} />} />
+        <Route path="/artworks" component={() => <Gallery artworks={artworks} /> }   />
+        <Route path="/about" component={About} />
         <Route path="/" component={Home} />
       </Switch>
     </div>

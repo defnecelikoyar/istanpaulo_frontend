@@ -6,42 +6,45 @@ import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 
 function Artwork({ artwork }) {
-    // return <div>
-    //     hello this is the artwork component
-    // </div>
-  const [tears, setTears] = useState(0);
-
 //   // Pull "id" from artwork object
-  const { id, image, name, about, movement } = artwork;
 
 //   // Generate path by interpolating "id" into <Link> path
-  const path = `/artworks/${id}`;
+  const path = `/artworks/${artwork.id}`;
 
+  const [tears, setTears] = useState(0);
   function handleTearClick() {
     setTears(tears + 1);
   }
 
+  const totalTears = () => {
+    if (tears > 1) {
+      return <span> {tears} people crying. </span>
+    } else if (tears === 1) {
+      return <span> {tears} person crying. </span>
+    } else if (tears === 0) {
+      return <span> No one's crying. </span>
+    }
+  }
+
   return (
-    <li className="card">
-      <div className="project-image">
-        <img src={image} alt={name} />
-        <button className="claps" onClick={handleTearClick}>
-        🥲{tears} Tear to my eye.
+    <ul className="cards_item">
+      <div className="card">
+        <img src={artwork.image_url} alt={artwork.title} className="card_image"/>
+        <button className="tears" onClick={handleTearClick}>
+        🥲  This brought a tear to my eye.
         </button>
+        <span> {totalTears()} </span>
       </div>
 
-      <div className="details">
-        <h4>{name}</h4>
-        <p>{about}</p>
-        <Link to={path}>
-          See More
-        </Link>
+      <div className="card_content">
+        <h4 className="card_title">{artwork.title}</h4>
+        <Link to={path}>See More</Link>
       </div>
 
-      <div className="extra">
-        <span className="badge blue">Movement {movement}</span>
+      <div className="card_detail">
+        <p>{artwork.era}</p>
       </div>
-    </li>
+    </ul>
   );
 }
 
