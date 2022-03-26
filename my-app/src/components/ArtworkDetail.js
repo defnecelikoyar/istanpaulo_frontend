@@ -61,7 +61,7 @@ function ArtworkDetail(art) {
         🥲 {tears} crying rn.
         </button>
       <Link className="go-back" to="/artworks" onClick={handleBack}>go back now!</Link>
-      <div className="detail-links">
+        <div className="detail-links">
           <Link className="detail-link" to="/">home</Link>
           <Link className="detail-link" to="/artworks/new">submit</Link>
           <Link className="detail-link" to="/about">about</Link>

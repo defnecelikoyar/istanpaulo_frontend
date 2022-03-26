@@ -9,7 +9,7 @@ function ArtworkForm({ addArtwork }) {
     "artist": "",
     "title": "",
     "date" : "",
-    "imageUrl" : "",
+    "image_url" : "",
     "description" : ""
   })
 
@@ -20,8 +20,8 @@ function ArtworkForm({ addArtwork }) {
   function handleSubmit(event) {
     event.preventDefault();
         // console.log(formData);
+        // console.log(formData.imageUrl);
         addArtwork(formData)
-        // console.log(typeof formData)
       }
 
   return (
@@ -50,13 +50,13 @@ function ArtworkForm({ addArtwork }) {
           />
         </div>
         <div className="form-image">
-          <label className="image-label" htmlFor="imageUrl">image url</label>
+          <label className="image-label" htmlFor="image_url">image url</label>
           <input
             className="image-input"
             type="text"
-            id="imageUrl"
-            name="imageUrl"
-            value={formData.imageUrl}
+            id="image_url"
+            name="image_url"
+            value={formData.image_url}
             onChange={handleChange}
           />
         </div>

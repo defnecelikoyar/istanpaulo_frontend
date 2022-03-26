@@ -28,7 +28,7 @@ function App() {
   })
   .then((r) => r.json())
   .then(newArtwork => console.log(newArtwork))
-  // .then(newArtwork => setArtworks([newArtwork, ...artworks]))
+  .then(newArtwork => setArtworks([newArtwork, ...artworks]))
   }
 
   // function handleAddArtwork(newArtwork) {
