@@ -3,14 +3,23 @@
 *::after {
   box-sizing: border-box;
 }
+   
+@font-face {
+  font-family: Enchanted-Land;
+  src: url(./enchanted_land/Enchanted-Land.otf);
+}
 
-html {
-  background-color: #000000;
+@font-face {
+  font-family: BluuNext-Bold;
+  src: url(./BluuNext-Bold.otf)
+}
+
+@font-face {
+  font-family: Montaga;
+  src: url(./Montaga/Montaga-Regular.ttf)
 }
 
 body {
-  color: #999999;
-  font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0;
@@ -18,17 +27,71 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga" on;
+  /* -moz-font-feature-settings: "liga" on; */
+}
+
+h1.home-header {
+  color: #ffffff;
+  text-align: center;
+  font-family: 'Enchanted-Land';
+  font-size: 200px;
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: rgb(182, 41, 41);
+  margin-block-start: 0.67em;
+  margin-block-end: 0.1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: normal;
+}
+
+h1.home-header:hover {
+  color: rgb(255, 255, 0);
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: rgb(55, 0, 255);
+}
+
+a.home-about {
+  color: #ffffff;
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: rgb(182, 41, 41);
+  text-decoration: none;
+}
+
+a.home-about:hover {
+  color: rgb(255, 255, 0);
+  -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: rgb(55, 0, 255);
+}
+
+div.home-links {
+  text-align: center;
+}
+
+a.home-link {
+  font-family: 'Enchanted-Land';
+  font-size: 50px;
+  margin-block-start: 2em;
+  margin-block-end: 0em;
+  margin-right: 10px;
+  margin-left: 10px;  
+  color: rgb(212, 255, 0);
+  font-weight: normal;
+  text-decoration: none;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+
+a.home-link:hover {
+  color:rgb(242, 0, 255);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
 }
 
 #main-header{
   display: block;
   border-radius: 30%;
   opacity: 100%;
-}
-
-.centered {
-  text-align: center;
+  font-family: cursive;
 }
 
 code {
@@ -36,119 +99,630 @@ code {
     monospace;
 }
 
-  img {
-    height: auto;
-    max-width: 100%;
-    vertical-align: middle;
-  }
-  
-  .btn {
-    background-color: white;
-    color: #696969;
-  }
-  
-  .btn--block {
-    display: block;
-    width: 100%;
-  }
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
 
-.cards {
+h2.artworks-header {
+  text-align: center;
+  color:rgb(92, 9, 9);
+  font-family: 'Enchanted-Land';
+  font-size: 100px;
+  font-weight: normal;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  padding-left: 3em;
+  padding-right: 3em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(242, 0, 255);
+}
+
+h2.artworks-header:hover {
+  color:rgb(242, 0, 255);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(92, 9, 9);
+}
+
+a.artworks-link {
+  text-decoration: none;
+  color:rgb(92, 9, 9);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(242, 0, 255);
+}
+
+a.artworks-link:hover {
+  color:rgb(242, 0, 255);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(255, 255, 0);
+}
+
+ul.cards {
+  justify-content: space-around;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin: 10;
-  padding: 10;
+  margin-block-start: 0.2em;
+  margin-block-end: 0.5em;
+  margin-left: 0em;
+  margin-right: 0em;
 }
 
-.cards_item {
-  background-color: white;
-  display: flex;
-  padding: 1rem;
-  width: 50%;
-  border-radius: 0.5rem;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.card_content {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  padding: 1rem;
+div.cards_item {
+  padding-left: 2rem;
+  padding-right:2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 40%;
+  border: 2px hidden;
+  border-radius: 5px;
 }
 
 .card_image {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
-  filter: contrast(70%);
   overflow: hidden;
   position: relative;
-  transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);
+  width: 100%;
 }
 
 .card_image:hover{
-  filter: contrast(100%);
+  -webkit-filter: sepia(100%) hue-rotate(250deg);
+  filter: sepia(100%) hue-rotate(250deg);
 }
 
+div.card_header {
+  display: flex;
+  justify-content: space-between;
+}
 
 .card_title {
-  color: #696969;
-  font-size: 1.25rem;
-  font-weight: 300;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  font-family: 'BluuNext-Bold';
+  color: #ff0000;
+  font-size: 25px;
+  font-weight: normal;
+  margin-block-start: 10px;
+  margin-block-end: 5px;
+  margin-inline-start: 2px;
+  margin-inline-end: 0px;
+  /* letter-spacing: 2px; */
+  /* text-transform: lowercase; */
 }
 
-.card_text p {
-  flex: 1 1 auto;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
-  text-align: center
+.card_artist {
+  color:rgb(249, 135, 255);
+  font-family: 'BluuNext-Bold';
+  font-size: 20px;
+  margin-block-start: 18px;
+  margin-block-end: 5px;
 }
 
-.card_detail {
+div.tears {
+  display: flex;
+  margin-block-start: 0.3em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  justify-content: space-between;
+}
+
+.tears-button {
+  margin-right: 10px;
+  margin-left: 0px;
+  background-color: rgb(254, 233, 255);
+  border: 2px solid rgb(249, 135, 255);
+  border-radius: 5px;
+  color:#200094;
+}
+
+.tears-button:hover {
+  background-color: rgb(92, 9, 9);
+  color: white;
+}
+
+.tears-total {
+  font-family: 'BluuNext-Bold';
+  margin-top: 0.5rem;
+  font-size: 20px;
+  color: rgb(212, 255, 0);
+  /* color:rgb(242, 0, 255); */
+  margin-left: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;  
+}
+
+div.gallery-nav {
+  text-align: center;
+}
+
+h3.gallery-istanpaulo {
+  font-family: 'Enchanted-Land';
+  color:rgb(92, 9, 9);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(242, 0, 255);
+  font-size: 80px;
+  font-weight: normal;
+  margin-block-start: 0.5em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+h3.gallery-istanpaulo:hover {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(55, 0, 255);
+}
+
+a.gallery-link {
+  font-family: 'Enchanted-Land';
+  font-size: 48px;
+  margin-block-start: 2em;
+  margin-block-end: 0em;
+  margin-right: 10px;
+  margin-left: 10px;  
+  color: rgb(212, 255, 0);
+  font-weight: normal;
+  text-decoration: none;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+
+a.gallery-link:hover {
+  color:rgb(255, 0, 43);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+
+.details {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
-.card_detail p {
-  flex: 1 1 auto;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
-  text-align: center;
-}
-
-.card_detail button{
-  text-align: center;
-}
-
-.details{
-  background-color: #ffffff;
-}
-
-.detail_image{
+.detail-image {
   display: block;
-  border-radius: 30%;
+  border-radius: 10%;
   padding: 1rem;
-  width: 70%;
-  height: 70%;
+  width: 100%;
+  height: 100%;
 }
 
-.reviews {
-  background-color: #ffffff;
+.detail-text {
+  text-align: right;
+  padding-top: 10em;
+  vertical-align: center;
 }
 
-.review-text {
-  color: #000000;
+.detail-title {
+  color:rgb(80, 1, 58);
+  font-family: 'Enchanted-Land';
+  font-size: 100px;
+  text-transform: lowercase;
+  font-weight: normal;
+  vertical-align: bottom;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0.2px;
+  margin-inline-end: 2px;
+}
+
+.detail-artist {
+  color:rgb(80, 1, 1);
+  font-family: 'Enchanted-Land';
+  font-size: 80px;
+  text-transform: lowercase;
+  font-weight: normal;
+  vertical-align: top;
+  margin-block-start: 0em;
+  margin-block-end: 0.2em;
+  margin-inline-start: 0.2px;
+  margin-inline-end: 2px;
+}
+
+.detail-description {
+  flex: 1 1 auto;
+  font-size: 25px;
+  line-height: 1.5;
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+  margin-inline-start: 2em;
+  margin-inline-end: 2px;
+  font-family: 'Montaga';
+  font-weight: normal;
+  text-align: right;
+}
+
+div.detail-buttonz {
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+  margin-inline-start: 0em;
+  margin-inline-end: 0em;
+  display: inline-block;
+  justify-content: space-between;
+  width: 100%;
+  text-align: center;
+}
+
+button.tears {
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+  margin-inline-start: 2px;
+  margin-inline-end: 0px;
+  font-size: 20px;
+  font-family: 'Helvetica';
+  background-color: rgb(252, 196, 255);
+  border: 2px solid rgb(55, 0, 255);
+  border-radius: 5px;
+  color:#000000;
+  cursor: pointer;
+}
+
+button.tears:hover {
+  background-color: rgb(152, 164, 255);
+}
+
+a.go-back {
+  margin-block-start: 2em;
+  margin-block-end: 0.2em;
+  margin-inline-start: 2em;
+  margin-inline-end: 0px;
+  font-size: 45px;
+  font-family: 'Enchanted-Land';
+  text-decoration: none;
+  color:rgb(80, 1, 38);
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgb(55, 0, 255);
+}
+
+a.go-back:hover {
+  color:rgb(255, 255, 0);
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgb(55, 0, 255);
+}
+
+div.detail-links {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  padding-left: 5em;
+}
+
+a.detail-link {
+  font-family: 'Enchanted-Land';
+  font-size: 50px;
+  margin-block-start: 2em;
+  margin-block-end: 0em;
+  margin-right: 2em;
+  margin-left: auto;  
+  color: rgb(212, 255, 0);
+  font-weight: normal;
+  text-decoration: none;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+
+a.detail-link:hover {
+  color:rgb(255, 0, 43);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+
+div.detail-other {
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+  margin-inline-start: 0.2px;
+  margin-inline-end: 0px;
+}
+
+h3.reviews-header {
+  text-align: right;
+  font-family: 'Enchanted-Land';
+  font-size: 70px;
+  font-weight: normal;
+  color:rgb(80, 1, 38);
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+  margin-inline-start: 0.2px;
+  margin-inline-end: 2px;
+}
+
+div.review {
+  text-align: left;
+  font-family: 'Montaga';
+  display: inline-block;
+  width: 100%;
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+h3.review-author {
+  font-size: 23px;
+  margin-block-start: 0.2em;
+  margin-block-end: 0.2em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+p.review-text {
+  font-size: 22px;
+  margin-block-start: 0.2em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 2px;
+}
+
+div.about {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 55px;
+  font-family:'Enchanted-Land';
+  margin-block-start: 2em;
+  margin-block-end: 0em;
+  margin-right: auto;
+  margin-left: auto;
+  width: 45%;
+}
+
+a.defne-link {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+a.defne-link:hover {
+  color: rgb(212, 255, 0);
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+
+a.felippe-link {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+a.felippe-link:hover {
+  color: rgb(212, 255, 0);
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+
+h3.about-istanpaulo {
+  font-family: 'Enchanted-Land';
+  color:rgb(92, 9, 9);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(255, 0, 43);
+  font-size: 80px;
+  font-weight: normal;
+  margin-block-start: 0.5em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+h3.about-istanpaulo:hover {
+  color: rgb(212, 255, 0);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(55, 0, 255);
+}
+
+a.istanpaulo-link {
+  text-decoration: none;
+}
+
+div.about-links {
+  text-align: center;
+}
+
+a.about-link {
+  font-family: 'Enchanted-Land';
+  font-size: 48px;
+  margin-block-start: 2em;
+  margin-block-end: 0em;
+  margin-right: 10px;
+  margin-left: 10px;  
+  color: rgb(55, 0, 255);
+  font-weight: normal;
+  text-decoration: none;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgb(242, 0, 255);
+}
+
+a.about-link:hover {
+  color:rgb(212, 255, 0);
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgb(55, 0, 255);
+}
+
+h3.add-artwork {
+  text-align: center;
+  color:rgb(27, 54, 18);
+  font-family: 'Enchanted-Land';
+  font-size: 80px;
+  font-weight: normal;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  padding-left: 3em;
+  padding-right: 3em;
+  -webkit-text-stroke-width: 0.2px;
+  -webkit-text-stroke-color: rgb(136, 255, 0);
+}
+
+h3.add-artwork:hover {
+  color:rgb(136, 255, 0);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(27, 54, 18);
+}
+
+.form {
+  text-align: center;
+}
+
+.artist-label {
+  font-family: 'Enchanted-Land';
+  font-size: 40px;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: 0px;
+  margin-inline-end: 3px;
+}
+
+.artist-input {
+  font-family: 'Helvetica';
+  font-size: 15px;
+  width: 15em;
+  margin-block-start: 0.3em;
+  margin-block-end: 0em;
+  margin-inline-start: 3px;
+  margin-inline-end: 0px;
+}
+
+.title-label {
+  font-family: 'Enchanted-Land';
+  font-size: 40px;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: 0px;
+  margin-inline-end: 3px;
+}
+
+.title-input {
+  font-family: 'Helvetica';
+  font-size: 15px;
+  width: 16em;
+  margin-block-start: 0.3em;
+  margin-block-end: 0em;
+  margin-inline-start: 3px;
+  margin-inline-end: 0px;
+}
+
+.image-label {
+  font-family: 'Enchanted-Land';
+  font-size: 40px;
+  margin-block-start: 0.3em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 3px;
+}
+
+.image-input {
+  font-family: 'Helvetica';
+  font-size: 15px;
+  width: 12em;
+  margin-block-start: 0.3em;
+  margin-block-end: 0em;
+  margin-inline-start: 3px;
+  margin-inline-end: 0px;
+}
+
+.date-label {
+  font-family: 'Enchanted-Land';
+  font-size: 40px;
+  margin-block-start: 0.3em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 3px;
+}
+
+.date-input {
+  font-family: 'Helvetica';
+  font-size: 15px;
+  width: 16em;
+  margin-block-start: 0.3em;
+  margin-block-end: 0em;
+  margin-inline-start: 3px;
+  margin-inline-end: 0px;
+}
+
+.desc-label {
+  font-family: 'Enchanted-Land';
+  font-size: 40px;
+  margin-block-start: 0.3em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 3px;
+}
+
+.desc-input {
+  font-family: 'Helvetica';
+  font-size: 15px;
+  width: 11em;
+  height: 5em;
+  margin-block-start: 0.3em;
+  margin-block-end: 0em;
+  margin-inline-start: 3px;
+  margin-inline-end: 0px;
+}
+
+.submit-artwork {
+  width: 100px;
+  height: 50px;
+  font-family: 'Montaga';
+  font-size: 25px;
+  margin-block-start: 0.3em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 3px;
+  background-color: rgb(219, 255, 209);
+  border: 2px solid rgb(27, 54, 18);
+  border-radius: 5px;
+  color:rgb(27, 54, 18);
+  cursor: pointer;
+}
+
+.submit-artwork:hover {
+  background-color: rgb(152, 164, 255);
+}
+
+div.form-nav {
+  text-align: center;
+}
+
+h3.form-istanpaulo {
+  font-family: 'Enchanted-Land';
+  color:rgb(27, 54, 18);
+  -webkit-text-stroke-width: 0.2px;
+  -webkit-text-stroke-color: rgb(136, 255, 0);
+  font-size: 80px;
+  font-weight: normal;
+  margin-block-start: 0.5em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+h3.form-istanpaulo:hover {
+  color:rgb(136, 255, 0);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(27, 54, 18);
+}
+
+div.form-links {
+  text-align: center;
+}
+
+a.form-link {
+  font-family: 'Enchanted-Land';
+  font-size: 50px;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-right: 10px;
+  margin-left: 10px;  
+  color:rgb(55, 0, 26);
+  font-weight: normal;
+  text-decoration: none;
+  -webkit-text-stroke-width: 0.2px;
+  -webkit-text-stroke-color:rgb(212, 255, 0);
+}
+
+a.form-link:hover {
+  color:rgb(212, 255, 0);
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgb(80, 1, 38);
 }
 
 @media(max-width: 700px){
