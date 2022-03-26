@@ -4,14 +4,18 @@ import React from "react";
 
 
 function Home() {
+  document.body.style.backgroundColor = "#390606";
   return (
-    <div>
-          <Link className="button" to="/artworks">
-            View Gallery
+    <div className="home-div">
+      <h1 className="home-header"><Link className="home-about" to="/about">istanpaulo</Link></h1>
+        <div className="home-links">
+          <Link className="home-link" to="/artworks">
+            view gallery
           </Link>
-          <Link className="button" to="/artworks/new">
-            Submit Artwork
+          <Link className="home-link" to="/artworks/new">
+            submit artwork
           </Link>
+        </div>
     </div>
   );
 }

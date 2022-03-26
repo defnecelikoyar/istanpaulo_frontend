@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useHistory, Link } from 'react-router-dom';
 
 function ArtworkDetail(art) {
+  document.body.style.backgroundColor = "#DEBCEA";
   const [tears, setTears] = useState(0);
   const [artwork, setArtwork] = useState(null);
   // const [reviews, setReviews] = useState(null);
@@ -38,37 +39,39 @@ function ArtworkDetail(art) {
 
   const reviewItems = artwork.reviews.map((review) => {
     return (
-      <div className="reviews" key={review.id}>
-            <h3 className="review-text">{review.author}</h3>
+      <div className="review" key={review.id}>
+            <h3 className="review-author">{review.author}</h3>
             <p className="review-text">{review.review}</p>
-          </div>
+      </div>
     )
   })
 
   return (
-    <section>
-      <div className="cards">
-        <div className="detail_image">
-          <img src={artwork.image_url} alt={artwork.title} />
-          <button className="tears" onClick={handleTearClick}>
-          🥲 {tears}
-          </button>
-        </div>
-        <div className="details">
-          <h2>{artwork.title}</h2>
-          <p>{artwork.description}</p>
-          <div className="extra">
-            <span>{artwork.era}</span>
-          </div>
-          {/* <div className="reviews">
-            <h3>{reviews.author}</h3>
-            <p>{reviews.review}</p>
-          </div> */}
-          {reviewItems}
-          <Link to="/artworks" onClick={handleBack}> Go Back </Link>
+    <div className="details">
+      <div className="detail-visual">
+        <img className="detail-image" src={artwork.image_url} alt={artwork.title} />
+      </div>
+      <div className="detail-text">
+        <h2 className="detail-title">{artwork.title}</h2>
+        <h3 className="detail-artist">{artwork.artist}</h3>
+        <p className="detail-description">{artwork.description}</p>
+      </div>
+      <div className="detail-buttonz">
+      <button className="tears" onClick={handleTearClick} >
+        🥲 {tears} crying rn.
+        </button>
+      <Link className="go-back" to="/artworks" onClick={handleBack}>go back now!</Link>
+      <div className="detail-links">
+          <Link className="detail-link" to="/">home</Link>
+          <Link className="detail-link" to="/artworks/new">submit</Link>
+          <Link className="detail-link" to="/about">about</Link>
         </div>
       </div>
-    </section>
+      <div className="detail-other">
+        <h3 className="reviews-header">reviews from art lovers</h3>
+        {reviewItems}
+      </div>
+    </div>
   );
 }
 

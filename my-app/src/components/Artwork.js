@@ -27,24 +27,21 @@ function Artwork({ artwork }) {
   }
 
   return (
-    <ul className="cards_item">
-      <div className="card">
-        <img src={artwork.image_url} alt={artwork.title} className="card_image"/>
-        <button className="tears" onClick={handleTearClick}>
-        🥲  This brought a tear to my eye.
-        </button>
-        <span> {totalTears()} </span>
-      </div>
-
-      <div className="card_content">
-        <h4 className="card_title">{artwork.title}</h4>
-        <Link to={path}>See More</Link>
-      </div>
-
-      <div className="card_detail">
-        <p>{artwork.era}</p>
-      </div>
-    </ul>
+    <div className="cards_item">
+      <Link className="see-more" to={path}>
+      <img src={artwork.image_url} alt={artwork.title} className="card_image"/>
+      </Link>
+        <div className="card_header">
+          <h4 className="card_title">{artwork.title}</h4>
+          <h4 className="card_artist">{artwork.artist}</h4>
+        </div>
+        <div className="tears">
+          <button className="tears-button" onClick={handleTearClick}>
+          🥲  This brought a tear to my eye.
+          </button>
+          <span className="tears-total"> {totalTears()} </span>
+        </div>
+    </div>
   );
 }
 

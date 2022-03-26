@@ -1,121 +1,101 @@
 // ArtworkForm = ProjectForm
 
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 
 function ArtworkForm({ addArtwork }) {
+  document.body.style.backgroundColor = "#D0EABC";
   const [formData, setFormData] = useState({
     "artist": "",
     "title": "",
     "date" : "",
-    "era" : "",
     "imageUrl" : "",
     "description" : ""
   })
 
-  // function handleOnChange(e) {
-  //   console.log(formData)
-  // }
-  // const [artist, setArtist] = useState("");
-  // const [title, setTitle] = useState("");
-  // const [era, setEra] = useState(0);
-  // const [imageUrl, setImageUrl] = useState("");
-  // const [date, setDate] = useState(0);
-  // const [description, setDescription] = useState("");
-
-    // const formData = {
-    //   artist,
-    //   title,
-    //   era,
-    //   imageUrl,
-    //   date,
-    //   description
-    // };
-
+    function handleChange(e) {
+      setFormData({...formData, [e.target.name]:e.target.value})
+    }
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetch("http://localhost:9292/artworks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((r) => r.json())
-      .then((newArtwork) => {
-        console.log(newArtwork)
-        addArtwork(newArtwork);
-      });
-  }
+        // console.log(formData);
+        addArtwork(formData)
+        // console.log(typeof formData)
+      }
 
   return (
-    <section>
+    <div>
+      <h3 className="add-artwork">add new artwork</h3>
       <form onSubmit={handleSubmit} className="form" autoComplete="off">
-        <h3>Add New Artwork</h3>
-        <label htmlFor="artist">Artist</label>
-        <input
-          type="text"
-          id="artist"
-          name="artist"
-          value={formData.artist}
-          onChange={(event) => setFormData(event.target.value)}
-        />
-        {/* {formData.artist.length === 0 ? (
-          <p style={{ color: "red" }}>You must provide a name</p>
-        ) : null} */}
-
-        <label htmlFor="title">Title</label>
+        <div className="form-artist">
+          <label className="artist-label" htmlFor="artist">artist</label>
+          <input
+            className="artist-input"
+            type="text"
+            id="artist"
+            name="artist"
+            value={formData.artist}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-title">
+          <label className="title-label" htmlFor="title">title</label>
+          <input
+            className="title-input"
+            id="title"
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-image">
+          <label className="image-label" htmlFor="imageUrl">image url</label>
+          <input
+            className="image-input"
+            type="text"
+            id="imageUrl"
+            name="imageUrl"
+            value={formData.imageUrl}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-date">
+          <label className="date-label" htmlFor="date">date</label>
+          <input
+            className="date-input"
+            type="text"
+            id="date"
+            name="date"
+            value={formData.date}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-description">
+        <label className="desc-label" htmlFor="description">description</label>
         <textarea
-          id="title"
-          name="title"
-          value={formData.title}
-          onChange={(event) => setFormData(event.target.value)}
-        />
-
-        <label htmlFor="era">era</label>
-        <select
-          name="era"
-          id="era"
-          value={formData.era}
-          onChange={(event) => setFormData(parseInt(event.target.value))}
-        >
-          <option value="1">1910s</option>
-          <option value="2">1920s</option>
-          <option value="3">1950s</option>
-          <option value="4">1960s</option>
-          <option value="5">1970s</option>
-        </select>
-
-        <label htmlFor="imageUrl">Image URL</label>
-        <input
-          type="text"
-          id="imageUrl"
-          name="imageUrl"
-          value={formData.imageUrl}
-          onChange={(event) => setFormData(event.target.value)}
-        />
-
-        <label htmlFor="date">Date</label>
-        <input
-          type="text"
-          id="date"
-          name="date"
-          value={formData.date}
-          onChange={(event) => setFormData(event.target.value)}
-        />
-        
-        <label htmlFor="description">Description</label>
-        <input
+          className="desc-input"
           type="text"
           id="description"
           name="description"
           value={formData.description}
-          onChange={(event) => setFormData(event.target.value)}
+          onChange={handleChange}
         />
-
-        <button type="submit">Add Artwork</button>
+        </div>
+        <button className="submit-artwork" type="submit">submit</button>
       </form>
-    </section>
+      <div className="form-nav">
+      <Link className="istanpaulo-link" to="/">
+        <h3 className="form-istanpaulo">
+          istanpaulo
+        </h3>
+        </Link>
+        <div className="form-links">
+          <Link className="form-link" to="/artworks">gallery</Link>
+          <Link className="form-link" to="/about">about</Link>
+        </div>
+      </div>
+    </div>
   );
 }
 
